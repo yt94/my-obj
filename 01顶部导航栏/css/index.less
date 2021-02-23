@@ -1,0 +1,41 @@
+// 导入变量
+@import "variable";
+
+// 导入混合
+@import "mixins";
+
+// 导入重置样式
+@import "reset";
+
+// 通用的样式
+.container {
+    margin: 0 auto;
+    width: @content-width;
+}
+
+
+// 顶部导航栏
+.topbar {
+    height: 30px;
+    line-height: 30px;
+    background-color: #eaeaea;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        nav {
+            font-size: 0;
+        }
+        a {
+            font-size: 12px;
+            padding: 0 10px;
+            border-left: 1px solid #b3aeae;
+            &:first-child {
+                padding-left: 0;
+                border-left: none;
+            }
+        }
+    }
+}
+
+
+

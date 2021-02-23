@@ -1,0 +1,214 @@
+// 导入变量
+@import "variable";
+
+// 导入混合
+@import "mixins";
+
+// 导入重置样式
+@import "reset";
+
+// 通用的样式
+.container {
+    margin: 0 auto;
+    width: @content-width;
+}
+
+// 顶部导航栏
+.topbar {
+    height: 30px;
+    line-height: 30px;
+    background-color: #eaeaea;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        nav {
+            font-size: 0;
+        }
+        a {
+            font-size: 12px;
+            padding: 0 10px;
+            border-left: 1px solid #b3aeae;
+            &:first-child {
+                padding-left: 0;
+                border-left: none;
+            }
+        }
+    }
+}
+
+// logo 和 搜索
+.header {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        .logo {
+            margin: 25px 45px;
+            width: 175px;
+            height: 56px;
+            img {
+                width: 175px;
+                height: 56px;
+            }
+        }
+        .search {
+            margin-top: 35px;
+            form {
+                display: flex;
+            }
+            input {
+                box-sizing: border-box;
+                width: 490px;
+                height: 32px;
+                padding: 0 4px;
+                border: 2px solid @form-red;
+                outline: none;
+            }
+            button {
+                width: 68px;
+                height: 32px;
+                color: #fff;
+                background-color: @form-red;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+// 商品分类导航
+.page-nav {
+    border-bottom: 2px solid @bg-red;
+    .container {
+        display: flex;
+        .all-types {
+            width: 210px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: @bg-red;
+        }
+        nav {
+            display: flex;
+            line-height: 50px;
+            a {
+                margin: 0 22px;
+                font-size: 16px;
+                color: #333;
+            }
+        }
+    }
+}
+
+
+// 主要内容区域
+.main {
+    margin-top: 15px;
+    // 路径导航
+    .path-nav {
+        padding: 9px 15px 9px 0;
+        display: flex;
+        a {
+           &:not(:last-child) {
+               &::after {
+                   content: "/\00a0";
+                   padding: 0 5px;
+                   color: #ccc;
+               }
+           }
+        }
+    }
+
+    .product {
+        margin: 5px 0 15px;
+    }
+
+    // 商品预览 放大镜区域
+    .preview {
+        // 放大镜
+        .zoom {
+            position: relative;
+            .small-zoom {
+                position: relative;
+                width: 400px;
+                height: 400px;
+                border: 1px solid #dfdfdf;
+                overflow: hidden;
+                img {
+                    width: 400px;
+                    height: 400px;
+                }
+                .opacity-box {
+                    display: none;
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 200px;
+                    height: 200px;
+                    background-color: rgba(255,255,255,.5);
+                    border: 1px solid #ddd;
+                    cursor: move;
+                }
+            }
+            .big-zoom {
+                display: none;
+                position: absolute;
+                left: 420px;
+                top: 0;
+                width: 400px;
+                height: 400px;
+                border: 1px solid #dfdfdf;
+                overflow: hidden;
+                img {
+                    width: 800px;
+                    height: 800px;
+                }
+            }
+        }
+        // 缩略图
+        .thumb {
+            margin-top: 5px;
+            width: 400px;
+            display: flex;
+            .arrow-left,.arrow-right {
+                width: 10px;
+                height: 54px;
+                text-align: center;
+                line-height: 54px;
+                background-color: #ebebeb;
+                border: 1px solid #ccc;
+                user-select: none;
+            }
+            .arrow-left {
+                margin-right: 4px;
+            }
+            .thumb-list {
+                position: relative;
+                width: 372px;
+                height: 56px;
+                overflow: hidden;
+                .thumb-wrapper {
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    transition: left .5s;
+                    img {
+                        flex: 0 0 auto;
+                        margin-right: 20px;
+                        padding: 2px;
+                        width: 50px;
+                        height: 50px;
+                        border: 1px solid #ccc;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+

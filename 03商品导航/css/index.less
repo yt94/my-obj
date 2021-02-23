@@ -1,0 +1,106 @@
+// 导入变量
+@import "variable";
+
+// 导入混合
+@import "mixins";
+
+// 导入重置样式
+@import "reset";
+
+// 通用的样式
+.container {
+    margin: 0 auto;
+    width: @content-width;
+}
+
+// 顶部导航栏
+.topbar {
+    height: 30px;
+    line-height: 30px;
+    background-color: #eaeaea;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        nav {
+            font-size: 0;
+        }
+        a {
+            font-size: 12px;
+            padding: 0 10px;
+            border-left: 1px solid #b3aeae;
+            &:first-child {
+                padding-left: 0;
+                border-left: none;
+            }
+        }
+    }
+}
+
+// logo 和 搜索
+.header {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        .logo {
+            margin: 25px 45px;
+            width: 175px;
+            height: 56px;
+            img {
+                width: 175px;
+                height: 56px;
+            }
+        }
+        .search {
+            margin-top: 35px;
+            form {
+                display: flex;
+            }
+            input {
+                box-sizing: border-box;
+                width: 490px;
+                height: 32px;
+                padding: 0 4px;
+                border: 2px solid @form-red;
+                outline: none;
+            }
+            button {
+                width: 68px;
+                height: 32px;
+                color: #fff;
+                background-color: @form-red;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+// 商品分类导航
+.page-nav {
+    border-bottom: 2px solid @bg-red;
+    .container {
+        display: flex;
+        .all-types {
+            width: 210px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: @bg-red;
+        }
+        nav {
+            display: flex;
+            line-height: 50px;
+            a {
+                margin: 0 22px;
+                font-size: 16px;
+                color: #333;
+            }
+        }
+    }
+}
+
+
+
